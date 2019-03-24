@@ -18,8 +18,6 @@ public class DistanceCalcTest {
 	
 	private static final double DISTANCE_RESULT = 41.7687255008362;
 	
-	private DistanceCalcService DistanceCalcService = new DistanceCalcService();
-	
 	@Test
 	public void checkDistanceBetweenTwoPoints() {
 		double distance = DistanceCalcService.distanceInKilometers(LATITUDE_FIRST, LONGITUDE_FIRST, 

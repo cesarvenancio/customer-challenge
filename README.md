@@ -1,4 +1,4 @@
-# CUstomer Distance - Programming Challenge
+# Customer Distance - Programming Challenge
 
 ## Table of contents
 
@@ -22,13 +22,16 @@ Get a txt from a specific folder, get customers and print only the customers in 
     1. If the customer is in the range: 
         1. add to customers list
         2.  Ignore customer and continue the process 
-    2. Sort list based on userId (ASC)
-    3. Print result - Customer id and distance
+4. Sort list based on userId (ASC)
+5. Print result - Customer id and distance
 	
 ## Technologies
 
 This project was created using:
 * Java 8
+* jackson-databind 2.9.8
+* Junit 4.1.2
+* lombok 1.18.6
 		
 ## Setup
 
@@ -54,5 +57,5 @@ A `.jar` will be available in the `target` folder.
 ### Execute the .jar in Your CLI
 
 ```
-$ java -jar ./target/customer-challenge-1.0.jar
+$ java -jar ./target/customer-challenge-1.0.jar {filePath optional}
 ```

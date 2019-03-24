@@ -3,28 +3,26 @@ package com.challenge.customer.service;
 public class DistanceCalcService {
 
 	/**
-     * Equatorial earth radius in Kilometers (KM)
+     * Earth radius in Kilometers (KM)
      */
     private static final int EARTH_RADIUS = 6371;
 
     /**
-     * <p>
      * Method using the Haversine formula to calculate the great-circle distance
-     * between tow points by the latitude and longitude coordinates.</p>
      *
-     * @param startLati Initial latitude
-     * @param longitudeLocationA Initial longitude
-     * @param latitudeB Final latitude
-     * @param longitudeB Final longitude
-     * @return The distance in Kilometers
+     * @param latitudeLocationA first latitude
+     * @param longitudeLocationA first longitude
+     * @param latitudeLocationB second latitude
+     * @param longitudeLocationB second longitude
+     * @return the distance in kilometers
      */
     public static double distanceInKilometers(double latitudeLocationA, double longitudeLocationA, 
-    		double latitudeB, double longitudeB) {
+    		double latitudeLocationB, double longitudeLocationB) {
 
-        double differenceLatitude = Math.toRadians(latitudeB - latitudeLocationA);
-        double differenceLongitude = Math.toRadians(longitudeB - longitudeLocationA);
+        double differenceLatitude = Math.toRadians(latitudeLocationB - latitudeLocationA);
+        double differenceLongitude = Math.toRadians(longitudeLocationB - longitudeLocationA);
         double radiusStartLati = Math.toRadians(latitudeLocationA);
-        double radiusEndLati = Math.toRadians(latitudeB);
+        double radiusEndLati = Math.toRadians(latitudeLocationB);
 
 		double a = Math.pow(Math.sin(differenceLatitude / 2), 2) +
 				   Math.pow(Math.sin(differenceLongitude / 2), 2) * 

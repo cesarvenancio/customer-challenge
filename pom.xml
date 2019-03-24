@@ -59,7 +59,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.4.0</version>
 				<configuration>
-					<mainClass>com.challenge.driverbus.App</mainClass>
+					<mainClass>com.challenge.customer.AppMain</mainClass>
 					<cleanupDaemonThreads>false</cleanupDaemonThreads>
 				</configuration>
 			</plugin>
@@ -74,7 +74,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.challenge.driverbus.App</mainClass>
+							<mainClass>com.challenge.customer.AppMain</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

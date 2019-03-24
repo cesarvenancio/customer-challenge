@@ -25,19 +25,19 @@ public class CustomerService {
 
 	private static final double DISTANCE_LIMIT = 100;
 
-	public void process() throws JsonParseException, JsonMappingException, IOException {
+	public void process(String filePath) throws JsonParseException, JsonMappingException, IOException {
 
-		List<Customer> customers = getAndFilterCustomers();
+		List<Customer> customers = getAndFilterCustomers(filePath);
 
 		for (Customer customer : customers) {
 			System.out.printf("Customer userId: %d name: %s%n", customer.getUserId(), customer.getName());
 		}
 	}
 
-	private List<Customer> getAndFilterCustomers() throws IOException {
+	public List<Customer> getAndFilterCustomers(String filePath) throws IOException {
 
 		List<Customer> customers = new ArrayList<Customer>();
-		Scanner scan = getFileScanner("src/main/resources/customers.txt");
+		Scanner scan = getFileScanner(filePath);
 		ObjectMapper mapper = new ObjectMapper();
 		Integer lineCounter = 1;
 		
@@ -65,7 +65,7 @@ public class CustomerService {
 		customers.sort(Comparator.comparing(Customer::getUserId));
 	}
 	
-	private Scanner getFileScanner(String path) throws IOException {
+	public Scanner getFileScanner(String path) throws IOException {
 		
 		File file = new File(path);
 		try {
@@ -81,7 +81,7 @@ public class CustomerService {
 		}
 	}
 	
-	private Customer getCustomer(String customerText, ObjectMapper mapper, Integer line) throws IOException {
+	public Customer getCustomer(String customerText, ObjectMapper mapper, Integer line) throws IOException {
 			try {
 				
 				Customer customer = mapper.readValue(customerText, Customer.class);
@@ -101,10 +101,9 @@ public class CustomerService {
 				return mapper.readValue(customerText, Customer.class);
 			} catch (JsonParseException e) {
 				logger.severe(String.format("Fail to process text on line %d %s", line, e.getMessage()));
+				throw e;
 			} catch (IOException e) {
 				throw e;
 			}
-			
-			return null;
 	}
 }

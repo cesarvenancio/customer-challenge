@@ -12,7 +12,7 @@ public class AppMain {
 	public static void main(String[] args) {
 		CustomerService customerService = new CustomerService();
 		try {
-			customerService.process();
+			customerService.process("src/main/resources/customers.txt");
 		} catch (IOException e) {
 			logger.severe(e.getMessage());
 			if(args.length > 0 && args[0].equals("printStack")) {
